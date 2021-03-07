@@ -1,24 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FBq-Fr-eiB">
+                                <rect key="frame" x="67" y="124" width="280" height="438"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="438" id="WeV-CW-LWB"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gZg-gR-94P" appends="YES" id="5XK-4h-8Ep"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkD-bf-QC7">
+                                <rect key="frame" x="191.5" y="670" width="31" height="30"/>
+                                <state key="normal" title="再生">
+                                    <color key="titleColor" systemColor="systemPinkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="slideShowButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7am-Uh-5bi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-DR-OUX">
+                                <rect key="frame" x="75" y="670" width="31" height="30"/>
+                                <state key="normal" title="戻る">
+                                    <color key="titleColor" systemColor="systemPinkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onback:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i2g-9i-OPL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q81-87-9r1">
+                                <rect key="frame" x="309" y="670" width="31" height="30"/>
+                                <state key="normal" title="進む">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onnext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rGG-sc-cwP"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FBq-Fr-eiB" firstAttribute="centerX" secondItem="TkD-bf-QC7" secondAttribute="centerX" id="6pb-Ni-iD7"/>
+                            <constraint firstItem="FBq-Fr-eiB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="I7f-pd-uYy"/>
+                            <constraint firstItem="q81-87-9r1" firstAttribute="baseline" secondItem="TkD-bf-QC7" secondAttribute="baseline" id="LvJ-IH-06z"/>
+                            <constraint firstItem="q81-87-9r1" firstAttribute="leading" secondItem="TkD-bf-QC7" secondAttribute="trailing" constant="86.5" id="RD8-yQ-Dxr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TkD-bf-QC7" secondAttribute="bottom" constant="162" id="Z4u-S2-TY5"/>
+                            <constraint firstItem="FBq-Fr-eiB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="iG6-jV-WDi"/>
+                            <constraint firstItem="Fd0-DR-OUX" firstAttribute="baseline" secondItem="TkD-bf-QC7" secondAttribute="baseline" id="ibb-yM-1e4"/>
+                            <constraint firstItem="FBq-Fr-eiB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nAL-pY-8fa"/>
+                            <constraint firstItem="Fd0-DR-OUX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="xgW-DN-9Af"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="Fd0-DR-OUX" id="BeG-VO-eRY"/>
+                        <outlet property="imageView" destination="FBq-Fr-eiB" id="eWr-nU-zDE"/>
+                        <outlet property="nextButton" destination="q81-87-9r1" id="req-zs-Zz0"/>
+                        <outlet property="startButton" destination="TkD-bf-QC7" id="66p-fn-MZw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="gZg-gR-94P">
+                    <connections>
+                        <action selector="ontapimage:" destination="BYZ-38-t0r" id="X1j-nG-lOb"/>
+                        <segue destination="ODY-aO-hS7" kind="show" id="EQN-iu-cBR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="-284.05797101449275" y="126.5625"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="Ott-kF-rTa">
+            <objects>
+                <viewController id="ODY-aO-hS7" customClass="ResultViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o3t-tE-22p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UT2-ir-caU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnG-Y0-Soa">
+                                <rect key="frame" x="190" y="656" width="34" height="30"/>
+                                <state key="normal" title="back">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="9Sv-Rz-c5a" kind="unwind" unwindAction="unwind:" id="cCq-ak-yqv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="m6Z-lY-vAn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jnG-Y0-Soa" firstAttribute="top" secondItem="m6Z-lY-vAn" secondAttribute="top" constant="656" id="1Vz-wB-RXg"/>
+                            <constraint firstItem="UT2-ir-caU" firstAttribute="centerX" secondItem="o3t-tE-22p" secondAttribute="centerX" id="DM1-ur-l6C"/>
+                            <constraint firstItem="UT2-ir-caU" firstAttribute="leading" secondItem="m6Z-lY-vAn" secondAttribute="leading" id="VrP-ny-tCs"/>
+                            <constraint firstItem="UT2-ir-caU" firstAttribute="top" secondItem="m6Z-lY-vAn" secondAttribute="top" id="Zqt-6o-Cy6"/>
+                            <constraint firstItem="jnG-Y0-Soa" firstAttribute="centerX" secondItem="UT2-ir-caU" secondAttribute="centerX" id="nmt-sG-BqL"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="UT2-ir-caU" secondAttribute="bottom" constant="-34" id="xkC-7I-JNQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="euX-bW-LbC"/>
+                    <connections>
+                        <outlet property="resultimageView" destination="UT2-ir-caU" id="4qu-QL-oCR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bxl-2o-OTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="9Sv-Rz-c5a" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="127"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
